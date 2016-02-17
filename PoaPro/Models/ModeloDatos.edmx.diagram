@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9810ad9448c34e1cb4041b3d85414edf" Name="Diagram1">
+        <EntityTypeShape EntityType="POAModel.ActividadEstrategica" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.Entidad" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.IndicadorAnual" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.IndicadorMensual" Width="1.5" PointX="12" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.IndicadorTrimestral" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.ObjetivoEstrategico" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.ObjetivoOperativo" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.POA" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.POADetalle" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.Producto" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.Resultado" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.UnidadAdministrativa" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.UnidadOperativa" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POAModel.Usuarios" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="POAModel.FK_POA_ActividadEstrategica" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_UnidadAdministrativa_Entidad" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_IndicadorAnual_POAResultado" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_IndicadorAnual_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_IndicadorAnual_UnidadOperativa" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_IndicadorTrimestral_IndicadorAnual" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_IndicadorMensual_IndicadorTrimestral" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_POA_ObjetivoEstrategico" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_POADetalle_ObjetivoOperativo" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_POA_POADetalle" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_POAResultado_POA" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_POAResultado_Resultado" ManuallyRouted="false" />
+        <AssociationConnector Association="POAModel.FK_UnidadOperativa_UnidadAdministrativa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

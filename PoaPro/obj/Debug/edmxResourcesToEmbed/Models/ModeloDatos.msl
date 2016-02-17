@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POAModelStoreContainer" CdmEntityContainer="POAEntities">
+    <EntitySetMapping Name="ActividadEstrategica">
+      <EntityTypeMapping TypeName="POAModel.ActividadEstrategica">
+        <MappingFragment StoreEntitySet="ActividadEstrategica">
+          <ScalarProperty Name="IdActividadEstrategica" ColumnName="IdActividadEstrategica" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entidad">
+      <EntityTypeMapping TypeName="POAModel.Entidad">
+        <MappingFragment StoreEntitySet="Entidad">
+          <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndicadorAnual">
+      <EntityTypeMapping TypeName="POAModel.IndicadorAnual">
+        <MappingFragment StoreEntitySet="IndicadorAnual">
+          <ScalarProperty Name="IdIndicador" ColumnName="IdIndicador" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdPOAResultado" ColumnName="IdPOAResultado" />
+          <ScalarProperty Name="IdUnidadOperativa" ColumnName="IdUnidadOperativa" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="DescripcionIndicador" ColumnName="DescripcionIndicador" />
+          <ScalarProperty Name="DescripcionMeta" ColumnName="DescripcionMeta" />
+          <ScalarProperty Name="ValorMeta" ColumnName="ValorMeta" />
+          <ScalarProperty Name="CriterioGenVI" ColumnName="CriterioGenVI" />
+          <ScalarProperty Name="CriterioGenMNG" ColumnName="CriterioGenMNG" />
+          <ScalarProperty Name="CriterioGenDS" ColumnName="CriterioGenDS" />
+          <ScalarProperty Name="Limitantes" ColumnName="Limitantes" />
+          <ScalarProperty Name="Acciones" ColumnName="Acciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndicadorMensual">
+      <EntityTypeMapping TypeName="POAModel.IndicadorMensual">
+        <MappingFragment StoreEntitySet="IndicadorMensual">
+          <ScalarProperty Name="IdIndicadorMensual" ColumnName="IdIndicadorMensual" />
+          <ScalarProperty Name="IdIndicadorTrimestral" ColumnName="IdIndicadorTrimestral" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="PrgMetaMen" ColumnName="PrgMetaMen" />
+          <ScalarProperty Name="EjecMetaMen" ColumnName="EjecMetaMen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndicadorTrimestral">
+      <EntityTypeMapping TypeName="POAModel.IndicadorTrimestral">
+        <MappingFragment StoreEntitySet="IndicadorTrimestral">
+          <ScalarProperty Name="IdIndicadorTrimestral" ColumnName="IdIndicadorTrimestral" />
+          <ScalarProperty Name="IdIndicador" ColumnName="IdIndicador" />
+          <ScalarProperty Name="Trimestre" ColumnName="Trimestre" />
+          <ScalarProperty Name="PrgMetaTrim" ColumnName="PrgMetaTrim" />
+          <ScalarProperty Name="EjecMetaTrim" ColumnName="EjecMetaTrim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjetivoEstrategico">
+      <EntityTypeMapping TypeName="POAModel.ObjetivoEstrategico">
+        <MappingFragment StoreEntitySet="ObjetivoEstrategico">
+          <ScalarProperty Name="IdObjetivoEstrategico" ColumnName="IdObjetivoEstrategico" />
+          <ScalarProperty Name="IdUnidadAdministrativa" ColumnName="IdUnidadAdministrativa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjetivoOperativo">
+      <EntityTypeMapping TypeName="POAModel.ObjetivoOperativo">
+        <MappingFragment StoreEntitySet="ObjetivoOperativo">
+          <ScalarProperty Name="IdObjetivoOperativo" ColumnName="IdObjetivoOperativo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POA">
+      <EntityTypeMapping TypeName="POAModel.POA">
+        <MappingFragment StoreEntitySet="POA">
+          <ScalarProperty Name="IdPOA" ColumnName="IdPOA" />
+          <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+          <ScalarProperty Name="IdUnidadAdministrativa" ColumnName="IdUnidadAdministrativa" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="IdObjetivoEstrategico" ColumnName="IdObjetivoEstrategico" />
+          <ScalarProperty Name="IdActividadEstrategica" ColumnName="IdActividadEstrategica" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POADetalle">
+      <EntityTypeMapping TypeName="POAModel.POADetalle">
+        <MappingFragment StoreEntitySet="POADetalle">
+          <ScalarProperty Name="IdPOADetalle" ColumnName="IdPOADetalle" />
+          <ScalarProperty Name="IdPOA" ColumnName="IdPOA" />
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="IdObjetivoOperativo" ColumnName="IdObjetivoOperativo" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="POAModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resultado">
+      <EntityTypeMapping TypeName="POAModel.Resultado">
+        <MappingFragment StoreEntitySet="Resultado">
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadAdministrativa">
+      <EntityTypeMapping TypeName="POAModel.UnidadAdministrativa">
+        <MappingFragment StoreEntitySet="UnidadAdministrativa">
+          <ScalarProperty Name="IdUnidadAdministrativa" ColumnName="IdUnidadAdministrativa" />
+          <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadOperativa">
+      <EntityTypeMapping TypeName="POAModel.UnidadOperativa">
+        <MappingFragment StoreEntitySet="UnidadOperativa">
+          <ScalarProperty Name="IdUnidadOperativa" ColumnName="IdUnidadOperativa" />
+          <ScalarProperty Name="IdUnidadAdministrativa" ColumnName="IdUnidadAdministrativa" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="POAModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

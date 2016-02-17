@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActividadEstrategica">
+    <Key>
+      <PropertyRef Name="IdActividadEstrategica" />
+    </Key>
+    <Property Name="IdActividadEstrategica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="IdEntidad" />
+    </Key>
+    <Property Name="IdEntidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Siglas" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="IndicadorAnual">
+    <Key>
+      <PropertyRef Name="IdIndicador" />
+    </Key>
+    <Property Name="IdIndicador" Type="int" Nullable="false" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="IdPOAResultado" Type="int" Nullable="false" />
+    <Property Name="IdUnidadOperativa" Type="int" Nullable="false" />
+    <Property Name="Anio" Type="int" Nullable="false" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+    <Property Name="DescripcionIndicador" Type="varchar(max)" Nullable="false" />
+    <Property Name="DescripcionMeta" Type="varchar(max)" />
+    <Property Name="ValorMeta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CriterioGenVI" Type="bit" />
+    <Property Name="CriterioGenMNG" Type="bit" />
+    <Property Name="CriterioGenDS" Type="bit" />
+    <Property Name="Limitantes" Type="varchar(max)" />
+    <Property Name="Acciones" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="IndicadorMensual">
+    <Key>
+      <PropertyRef Name="IdIndicadorMensual" />
+    </Key>
+    <Property Name="IdIndicadorMensual" Type="int" Nullable="false" />
+    <Property Name="IdIndicadorTrimestral" Type="int" Nullable="false" />
+    <Property Name="Mes" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PrgMetaMen" Type="int" Nullable="false" />
+    <Property Name="EjecMetaMen" Type="int" />
+  </EntityType>
+  <EntityType Name="IndicadorTrimestral">
+    <Key>
+      <PropertyRef Name="IdIndicadorTrimestral" />
+    </Key>
+    <Property Name="IdIndicadorTrimestral" Type="int" Nullable="false" />
+    <Property Name="IdIndicador" Type="int" Nullable="false" />
+    <Property Name="Trimestre" Type="int" Nullable="false" />
+    <Property Name="PrgMetaTrim" Type="int" Nullable="false" />
+    <Property Name="EjecMetaTrim" Type="int" />
+  </EntityType>
+  <EntityType Name="ObjetivoEstrategico">
+    <Key>
+      <PropertyRef Name="IdObjetivoEstrategico" />
+    </Key>
+    <Property Name="IdObjetivoEstrategico" Type="int" Nullable="false" />
+    <Property Name="IdUnidadAdministrativa" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ObjetivoOperativo">
+    <Key>
+      <PropertyRef Name="IdObjetivoOperativo" />
+    </Key>
+    <Property Name="IdObjetivoOperativo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar(max)" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="POA">
+    <Key>
+      <PropertyRef Name="IdPOA" />
+    </Key>
+    <Property Name="IdPOA" Type="int" Nullable="false" />
+    <Property Name="IdEntidad" Type="int" Nullable="false" />
+    <Property Name="IdUnidadAdministrativa" Type="int" Nullable="false" />
+    <Property Name="Anio" Type="int" Nullable="false" />
+    <Property Name="IdObjetivoEstrategico" Type="int" Nullable="false" />
+    <Property Name="IdActividadEstrategica" Type="int" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="POADetalle">
+    <Key>
+      <PropertyRef Name="IdPOADetalle" />
+    </Key>
+    <Property Name="IdPOADetalle" Type="int" Nullable="false" />
+    <Property Name="IdPOA" Type="int" Nullable="false" />
+    <Property Name="IdResultado" Type="int" Nullable="false" />
+    <Property Name="IdObjetivoOperativo" Type="int" Nullable="false" />
+    <Property Name="Indice" Type="varchar" MaxLength="50" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="IdResultado" Type="int" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Resultado">
+    <Key>
+      <PropertyRef Name="IdResultado" />
+    </Key>
+    <Property Name="IdResultado" Type="int" Nullable="false" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+    <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnidadAdministrativa">
+    <Key>
+      <PropertyRef Name="IdUnidadAdministrativa" />
+    </Key>
+    <Property Name="IdUnidadAdministrativa" Type="int" Nullable="false" />
+    <Property Name="IdEntidad" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Siglas" Type="varchar" MaxLength="10" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="UnidadOperativa">
+    <Key>
+      <PropertyRef Name="IdUnidadOperativa" />
+    </Key>
+    <Property Name="IdUnidadOperativa" Type="int" Nullable="false" />
+    <Property Name="IdUnidadAdministrativa" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Siglas" Type="varchar" MaxLength="10" />
+    <Property Name="Indice" Type="varchar" MaxLength="10" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nivel" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="Activo" Type="int" />
+  </EntityType>
+  <Association Name="FK_IndicadorAnual_POAResultado">
+    <End Role="POADetalle" Type="Self.POADetalle" Multiplicity="1" />
+    <End Role="IndicadorAnual" Type="Self.IndicadorAnual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POADetalle">
+        <PropertyRef Name="IdPOADetalle" />
+      </Principal>
+      <Dependent Role="IndicadorAnual">
+        <PropertyRef Name="IdPOAResultado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndicadorAnual_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="IndicadorAnual" Type="Self.IndicadorAnual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="IndicadorAnual">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndicadorAnual_UnidadOperativa">
+    <End Role="UnidadOperativa" Type="Self.UnidadOperativa" Multiplicity="1" />
+    <End Role="IndicadorAnual" Type="Self.IndicadorAnual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadOperativa">
+        <PropertyRef Name="IdUnidadOperativa" />
+      </Principal>
+      <Dependent Role="IndicadorAnual">
+        <PropertyRef Name="IdUnidadOperativa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndicadorMensual_IndicadorTrimestral">
+    <End Role="IndicadorTrimestral" Type="Self.IndicadorTrimestral" Multiplicity="1" />
+    <End Role="IndicadorMensual" Type="Self.IndicadorMensual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndicadorTrimestral">
+        <PropertyRef Name="IdIndicadorTrimestral" />
+      </Principal>
+      <Dependent Role="IndicadorMensual">
+        <PropertyRef Name="IdIndicadorTrimestral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndicadorTrimestral_IndicadorAnual">
+    <End Role="IndicadorAnual" Type="Self.IndicadorAnual" Multiplicity="1" />
+    <End Role="IndicadorTrimestral" Type="Self.IndicadorTrimestral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndicadorAnual">
+        <PropertyRef Name="IdIndicador" />
+      </Principal>
+      <Dependent Role="IndicadorTrimestral">
+        <PropertyRef Name="IdIndicador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POA_ActividadEstrategica">
+    <End Role="ActividadEstrategica" Type="Self.ActividadEstrategica" Multiplicity="1" />
+    <End Role="POA" Type="Self.POA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActividadEstrategica">
+        <PropertyRef Name="IdActividadEstrategica" />
+      </Principal>
+      <Dependent Role="POA">
+        <PropertyRef Name="IdActividadEstrategica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POA_ObjetivoEstrategico">
+    <End Role="ObjetivoEstrategico" Type="Self.ObjetivoEstrategico" Multiplicity="1" />
+    <End Role="POA" Type="Self.POA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjetivoEstrategico">
+        <PropertyRef Name="IdObjetivoEstrategico" />
+      </Principal>
+      <Dependent Role="POA">
+        <PropertyRef Name="IdObjetivoEstrategico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POA_POADetalle">
+    <End Role="POADetalle" Type="Self.POADetalle" Multiplicity="1" />
+    <End Role="POA" Type="Self.POA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POADetalle">
+        <PropertyRef Name="IdPOADetalle" />
+      </Principal>
+      <Dependent Role="POA">
+        <PropertyRef Name="IdObjetivoEstrategico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POADetalle_ObjetivoOperativo">
+    <End Role="ObjetivoOperativo" Type="Self.ObjetivoOperativo" Multiplicity="1" />
+    <End Role="POADetalle" Type="Self.POADetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjetivoOperativo">
+        <PropertyRef Name="IdObjetivoOperativo" />
+      </Principal>
+      <Dependent Role="POADetalle">
+        <PropertyRef Name="IdObjetivoOperativo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POAResultado_POA">
+    <End Role="POA" Type="Self.POA" Multiplicity="1" />
+    <End Role="POADetalle" Type="Self.POADetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POA">
+        <PropertyRef Name="IdPOA" />
+      </Principal>
+      <Dependent Role="POADetalle">
+        <PropertyRef Name="IdPOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POAResultado_Resultado">
+    <End Role="Resultado" Type="Self.Resultado" Multiplicity="1" />
+    <End Role="POADetalle" Type="Self.POADetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resultado">
+        <PropertyRef Name="IdResultado" />
+      </Principal>
+      <Dependent Role="POADetalle">
+        <PropertyRef Name="IdResultado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnidadAdministrativa_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+    <End Role="UnidadAdministrativa" Type="Self.UnidadAdministrativa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="IdEntidad" />
+      </Principal>
+      <Dependent Role="UnidadAdministrativa">
+        <PropertyRef Name="IdEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnidadOperativa_UnidadAdministrativa">
+    <End Role="UnidadAdministrativa" Type="Self.UnidadAdministrativa" Multiplicity="1" />
+    <End Role="UnidadOperativa" Type="Self.UnidadOperativa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadAdministrativa">
+        <PropertyRef Name="IdUnidadAdministrativa" />
+      </Principal>
+      <Dependent Role="UnidadOperativa">
+        <PropertyRef Name="IdUnidadAdministrativa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="POAModelStoreContainer">
+    <EntitySet Name="ActividadEstrategica" EntityType="Self.ActividadEstrategica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndicadorAnual" EntityType="Self.IndicadorAnual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndicadorMensual" EntityType="Self.IndicadorMensual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndicadorTrimestral" EntityType="Self.IndicadorTrimestral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjetivoEstrategico" EntityType="Self.ObjetivoEstrategico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjetivoOperativo" EntityType="Self.ObjetivoOperativo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POA" EntityType="Self.POA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POADetalle" EntityType="Self.POADetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resultado" EntityType="Self.Resultado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnidadAdministrativa" EntityType="Self.UnidadAdministrativa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnidadOperativa" EntityType="Self.UnidadOperativa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_IndicadorAnual_POAResultado" Association="Self.FK_IndicadorAnual_POAResultado">
+      <End Role="POADetalle" EntitySet="POADetalle" />
+      <End Role="IndicadorAnual" EntitySet="IndicadorAnual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndicadorAnual_Producto" Association="Self.FK_IndicadorAnual_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="IndicadorAnual" EntitySet="IndicadorAnual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndicadorAnual_UnidadOperativa" Association="Self.FK_IndicadorAnual_UnidadOperativa">
+      <End Role="UnidadOperativa" EntitySet="UnidadOperativa" />
+      <End Role="IndicadorAnual" EntitySet="IndicadorAnual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndicadorMensual_IndicadorTrimestral" Association="Self.FK_IndicadorMensual_IndicadorTrimestral">
+      <End Role="IndicadorTrimestral" EntitySet="IndicadorTrimestral" />
+      <End Role="IndicadorMensual" EntitySet="IndicadorMensual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndicadorTrimestral_IndicadorAnual" Association="Self.FK_IndicadorTrimestral_IndicadorAnual">
+      <End Role="IndicadorAnual" EntitySet="IndicadorAnual" />
+      <End Role="IndicadorTrimestral" EntitySet="IndicadorTrimestral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POA_ActividadEstrategica" Association="Self.FK_POA_ActividadEstrategica">
+      <End Role="ActividadEstrategica" EntitySet="ActividadEstrategica" />
+      <End Role="POA" EntitySet="POA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POA_ObjetivoEstrategico" Association="Self.FK_POA_ObjetivoEstrategico">
+      <End Role="ObjetivoEstrategico" EntitySet="ObjetivoEstrategico" />
+      <End Role="POA" EntitySet="POA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POA_POADetalle" Association="Self.FK_POA_POADetalle">
+      <End Role="POADetalle" EntitySet="POADetalle" />
+      <End Role="POA" EntitySet="POA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POADetalle_ObjetivoOperativo" Association="Self.FK_POADetalle_ObjetivoOperativo">
+      <End Role="ObjetivoOperativo" EntitySet="ObjetivoOperativo" />
+      <End Role="POADetalle" EntitySet="POADetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POAResultado_POA" Association="Self.FK_POAResultado_POA">
+      <End Role="POA" EntitySet="POA" />
+      <End Role="POADetalle" EntitySet="POADetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POAResultado_Resultado" Association="Self.FK_POAResultado_Resultado">
+      <End Role="Resultado" EntitySet="Resultado" />
+      <End Role="POADetalle" EntitySet="POADetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnidadAdministrativa_Entidad" Association="Self.FK_UnidadAdministrativa_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="UnidadAdministrativa" EntitySet="UnidadAdministrativa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnidadOperativa_UnidadAdministrativa" Association="Self.FK_UnidadOperativa_UnidadAdministrativa">
+      <End Role="UnidadAdministrativa" EntitySet="UnidadAdministrativa" />
+      <End Role="UnidadOperativa" EntitySet="UnidadOperativa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
